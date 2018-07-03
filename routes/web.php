@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/mail', function () {
+    $data = array();
+    Mail::send('mail', $data, function($message) {
+        $message->to('baleethai@gmail.com');
+        $message->subject('E-Mail Example');
+    });
+
+    dd('Mail Send Successfully');
+
+});
